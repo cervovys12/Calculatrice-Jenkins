@@ -1,0 +1,10 @@
+node{
+	stage('SCM Checkout'){
+		git 'https://github.com/cervovys12/Calculatrice-Jenkins'
+	}
+	stage('Email NOtification'){
+		emailext body: "Your can get more information here : '${env.BUILD_URL}'",
+		subject: "Information about your ${status} build '${env.JOB_NAME} - n°
+		${env.BUILD_DISPLAY_NAME}'", to: 'ssnmoumen@gmail./com'
+	}
+}
